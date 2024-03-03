@@ -64,7 +64,7 @@ import sys
 #
 #
 #
-# lista = [5, 6.6, 36, 'a', 'b', [2, 3, 4], 'ab']
+#lista = [5, 6.6, 36, 'a', 'b', [2, 3, 4], 'ab']
 # print(lista)
 # # dodanie nowego elementu na koncu listy
 # lista.append(67)
@@ -125,13 +125,66 @@ import sys
 # else:
 #     print("a jest rowne b")
 
-a = int(input())
-b = int(input())
-c = int(input())
-d = int(input())
+# a = int(input())
+# b = int(input())
+# c = int(input())
+# d = int(input())
+#
+# if (a > b) & (c > d):
+#     print(a, c)
+# else:
+#     print(b, d)
 
-if (a > b) & (c > d):
-    print(a, c)
+# petle
+# for i in range(8):
+#     print(i)
+# else:
+#     print('koniec petli')
+
+# petla od 2 do 7
+# for i in range(2, 7):
+#     print(i)
+# else:
+#     print('koniec petli')
+
+# petla od 2 do 8 co 2 kroki
+#
+# (odkomentuj liste)
+# for i in lista:
+#     print(i)
+# petla zagniezdzona
+# for i in range(0, 5):
+#     for j in range(0, 5):
+#         result = i+j
+#         print(result)
+#     print('')
+
+# # while i przechodzenie po waszytskich elementach listy
+# licznik = 0
+# while licznik < len(lista):
+#     print(lista[licznik])
+#     licznik += 1
+# else:
+#     print('koniec petli')
+#
+# licznik = 0
+# while licznik!= 10:
+#     if licznik == 7:
+#         print(licznik)
+#         break
+#     else:
+#         licznik +=1
+# else:
+#     print('licznik')
+
+# ZADANIE
+i = 0
+lista = [1, 2, 3, 4, 5, 6]
+liczba_wczytana = int(input())
+
+while i < len(lista):
+    if liczba_wczytana - lista[i] == 0:
+        break
+    i += 1
 else:
-    print(b, d)
-
+    print('liczba podana nie jest z listy')
