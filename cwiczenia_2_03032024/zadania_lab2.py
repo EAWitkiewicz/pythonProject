@@ -14,7 +14,17 @@ nie zmienie sie
 to nie moj swiat"""
 g=complex(111,222)
 h=complex(333,444)
-print("\n",a,"\n",b,"\n",c,"\n",d,"\n",e,"\n",f,"\n",g,"\n",h,"\n",)
+l=True
+m=False
+n=list[1,2,3,4,5,6,7,8,9] #trzeba byy petlami to wypisac
+rainbow=list["red","orange","yellow","green","blue","purple"]
+p=tuple[(1,2,3,4,5,6,7,8)]
+r=tuple[("yes","si","ja","pytasz dzika czy biega po Olsztynie")]
+zakres1=range(1,5)
+zakres2=range(1,15,2)
+
+
+print("\n",a,"\n",b,"\n",c,"\n",d,"\n",e,"\n",f,"\n",g,"\n",h,"\n",l,"\n",m,"\n",n,"\n",rainbow,"\n",p,"\n",r,"\n",zakres1,"\n",zakres2,"\n")
 
 #ad2. Stwórz skrypt kalkulator,
 #w którym wykorzystać wszystkie podstawowe działania arytmetyczne
@@ -37,6 +47,24 @@ kalkulator(liczba_1,operacja,liczba_2)
 #Zad3. Napisz skrypt, w którym
 # stworzysz operatory przyrostkowe dla operacji: +, -, *, /, **, %
 
+#nie rozumiem co tu trzeba zrobic.Po prostu pozapisywac zmienna np i=+ ? to by nie
+#mialo wiecej sensu w petli?
+zmienna_jak_moj_humor=4
+print(zmienna_jak_moj_humor)
+zmienna_jak_moj_humor+=2
+print(zmienna_jak_moj_humor)
+zmienna_jak_moj_humor-=2
+print(zmienna_jak_moj_humor)
+zmienna_jak_moj_humor*=2
+print(zmienna_jak_moj_humor)
+zmienna_jak_moj_humor/=2
+print(zmienna_jak_moj_humor)
+zmienna_jak_moj_humor**=2
+print(zmienna_jak_moj_humor)
+zmienna_jak_moj_humor%=2
+print(zmienna_jak_moj_humor)
+print("\n")
+
 #Zad4. Napisz skrypt, który policzy i wyświetli następujące wyrażenia:
 euler=math.exp(10)
 print(euler)
@@ -58,3 +86,48 @@ print(imie.capitalize(),nazwisko.capitalize())
 #Zad.6 Napisz skrypt, gdzie w zmiennej string zapiszesz fragment tekstu piosenki z powtarzającymi się
 #słowami np. „la la la”. Następnie użyj odpowiedniej funkcji, która zliczy występowanie słowa „la”. (trzeba
 #użyć metody count)
+
+nienawisc_myslovitz="""I nagle skończy się
+To wszystko w co wierzysz
+Co kochasz, zasypie śnieg
+Dziki uniesie Cię wiatr
+Upuści cię nagle uderzysz ufałeś mu tak
+Ale Ty nigdy nie poddasz się
+Ale Ty nigdy nie poddasz się
+Nie wierz nigdy nie
+W tych co ciągle udają i ciągle uśmiechają się
+Nie wierz nigdy nie
+W to niebo które zawsze niebieskie jest
+Ale Ty nigdy nie poddasz się
+Ale Ty nigdy nie poddasz się
+Ale Ty nigdy nie poddasz się
+Ale Ty nigdy nie poddasz się"""
+ile_razy_sie_nie_poddasz=nienawisc_myslovitz.count("Ale Ty nigdy nie poddasz się")
+print(ile_razy_sie_nie_poddasz)
+
+# Zad.7 Do poszczególnych elementów łańcucha możemy się odwoływać przez podanie indeksu.
+# Np. pierwszy znak zapisany w zmiennej imie uzyskamy przez imie[0].
+# Zapisz dowolną zmienną łańcuchową i wyświetl jej drugą i ostatnią literę,
+# wykorzystując indeksy.
+tekst="Moja pierwsza wielka milosc ,zaczela sie i nagle skonczyla"
+#ostatnia=tekst[57]
+ostatnia=tekst[len(tekst)-1]
+druga=tekst[1]
+print(ostatnia)
+print(druga,ostatnia)
+
+#Zad.8 Zmienne łańcuchowe możemy dzielić wykorzystaj zmienną z Zad. 6 i
+# spróbuj ją podzielić na poszczególne wyrazy. (trzeba użyć metody split)
+print(tekst.split(","))
+
+#Zad.9 Napisz skrypt, w którym zadeklarujesz zmienne typu: string, float i szestnastkowe.
+# Następnie wyświetl je wykorzystując odpowiednie formatowanie.
+#czym to sie rozni od 1 zadania? ze z ta szesnastkową jest wiecej zabawy?
+string="Najgorsze jest jednak to Twoje rozczarowanie"
+elo_elo=3.20
+szesnastkowa=0xFF
+szesnaaastkowanr2="FF"
+print(string)
+print(elo_elo)
+print(szesnastkowa)
+print(int(szesnaaastkowanr2,16))
