@@ -3,14 +3,27 @@ print("Jedziesz z koksem")
 
 #Zad 1. Napisz skrypt, w którym tworzysz listę ulubionych sportów,
 # odwróć ją a następnie dodaj mniej lubiane sporty na sam koniec.
+sporty=["euknkanto","boks szachowy","flanki","podwodny hokej","wyscig strusi","cheese-rolling"]
+print(sporty)
+sporty.reverse()
+print(sporty)
+sporty.extend(["kutarate","Quidditch"])
+print(sporty)
+#chodzi ododanie odtakowego sportu czy o zmiane kolejnosci?
+
+
 
 #Zad 2. Stwórz słownik skrótów powszechnie używanych w gazetach lub
 # artykułach internetowych. Jako klucz przyjmij skrót danego słowa,
 # wartość to rozwinięcie tego skrótu.
 
+#nie beda z gazet
+slownik={'kc':"kohcham cie",'pzdr':"pozdro",'cb':"Ciebie",'hwdp':":)",'w8':"wait"}
+
 #Zad 3. Stwórz słownik z ulubionymi grami komputerowymi.
 # Pomyśl, co może być kluczem a co wartością w takim słowniku.
 # Policz liczbę elementów w słowniku.
+gierki={1:"untitled goos game",2:"Counter-Strike",3:"Mario"}
 
 #Zad 4. Napisz skrypt, który pobiera od użytkownika zdanie i liczy
 # wystąpienia litery a. Użyj funkcji input
