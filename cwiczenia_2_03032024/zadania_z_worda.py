@@ -13,7 +13,7 @@ import re
 # #nie sa znakami specjalnymi
 # liczba_slowa=len(slowa)
 # print("liczba slowa: {}\n".format(liczba_slowa))
-
+#
 
 
 
@@ -33,21 +33,14 @@ import re
 
 # # Zad3. Napisz skrypt, który sprawdzi czy wczytany napis jest palindromem.
 # print("zadanie 3")
-zdanie1 =input("Podaj zdanie aby sprawdzic czy jest palindromem: ")
-zdanie_bez_spacji_i_wszytskie_male_litery=zdanie1.replace(" ","").lower()
-zdanie_zlisowane=list(zdanie_bez_spacji_i_wszytskie_male_litery)
-zdanie2=zdanie_zlisowane
-zdanie_zlisowane.reverse()
-if zdanie_zlisowane==zdanie2:
-    print("spalindromowane")
-else:
-    print("nie spalindromowane")
-
-
-# if zdanie1.remove(" ")==list((zdanie1.reverse())).remove(" "):
-#     print("Palindromowane")
+# zdanie1 =input("Podaj zdanie aby sprawdzic czy jest palindromem: ")
+# zdanie_bez_spacji_i_wszytskie_male_litery=zdanie1.replace(" ","").lower()
+# zdanie2=list(zdanie_bez_spacji_i_wszytskie_male_litery)
+# zdanie2.reverse()
+# if list(zdanie_bez_spacji_i_wszytskie_male_litery)==zdanie2:
+#     print("spalindromowane")
 # else:
-#     print("nie palindromowane")
+#     print("nie spalindromowane")
 
 
 # # Zad4. Napisz skrypt, który sprawdzi czy wczytana liczba jest pierwsza.
@@ -98,8 +91,6 @@ else:
 #     liczba_pobrana=input("Podaj liczbe ktora ma byc dodana do listy: ")
 #     if (float(liczba_pobrana)%2==0):
 #         lista1.append(liczba_pobrana)
-#
-# print(lista1)
 
 
 # Zad 8.
@@ -108,20 +99,29 @@ else:
 # Utwórz słownik, gdzie klucze będą poszczególnymi elementami z listy,
 # a wartość to ilość wystąpień klucza w liście.
 # Następnie usuń wszystkie elementy ze słownika, które nie będą liczbami.
-lista2=("element","dowolnego typu",777,99.9,'x',6,6,6,"slowo")
+lista2=("aa","dfgdg",1,3,4,1,1,1,1,1)
 slownik={}
+for i in range(0,len(lista2)):
 
-#petla ktora dodaje jak leci klucze w slowniku cos w styli slownik[i]=lista[i]
-#petla albo count ktora zlicza wystapienia tych kluczy
-#petla ktora wpisuje wystapienia do tych kluczy
-#petla usuwajaca po kluczach
-for i in lista2:
-    for j in slownik:
-        slownik[j]=i
+    slownik[lista2[i]]=lista2[i] #pod konkretna wartoscią aa prxypisuje sie aa
+    # slownik[i] = lista2[i]
+    #print(type(zliczone),zliczone)
+    slownik[lista2[i]]=lista2.count(lista2[i]) #pod podanym kluczem(aa) wpisuje sie wartosc ilosci wystapien podanego klucza (1)
 
 print(slownik)
 
+# USUWANIE ELEMENTOW KTORE NIE SA LICZBAMI
+lista_z_kluczami_do_usniecia=[]
+for i in slownik:   #leci po kluczach
+    if type(i) !=int:   #sprawdza typ ,jak to nie jest liczbowy to wrzuca do odzielnej listy ktora bedzie przechowywac te klucze co nie sa liczbami
+        lista_z_kluczami_do_usniecia.append(i)
 
+#jest juz utorzona lista z kluczami ktore maja byc usuniete
+for i in lista_z_kluczami_do_usniecia: #leci po tej liscie
+    del slownik[i] #usuwa jej elementy ktoree sa kluczami ze slownika
+
+#slownik po wszytskich przejsciach
+print(slownik)
 
 
 
