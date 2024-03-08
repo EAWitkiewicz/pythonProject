@@ -33,8 +33,21 @@ import re
 
 # # Zad3. Napisz skrypt, który sprawdzi czy wczytany napis jest palindromem.
 # print("zadanie 3")
-# zadnie1 = input("Podaj zdanie aby sprawdzic czy jest palindromem: ")
-# for i in range(len(zadnie1),i):
+zdanie1 =input("Podaj zdanie aby sprawdzic czy jest palindromem: ")
+zdanie_bez_spacji_i_wszytskie_male_litery=zdanie1.replace(" ","").lower()
+zdanie_zlisowane=list(zdanie_bez_spacji_i_wszytskie_male_litery)
+zdanie2=zdanie_zlisowane
+zdanie_zlisowane.reverse()
+if zdanie_zlisowane==zdanie2:
+    print("spalindromowane")
+else:
+    print("nie spalindromowane")
+
+
+# if zdanie1.remove(" ")==list((zdanie1.reverse())).remove(" "):
+#     print("Palindromowane")
+# else:
+#     print("nie palindromowane")
 
 
 # # Zad4. Napisz skrypt, który sprawdzi czy wczytana liczba jest pierwsza.
