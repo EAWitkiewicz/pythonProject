@@ -99,7 +99,7 @@ while i!=10:
 # Utwórz słownik, gdzie klucze będą poszczególnymi elementami z listy,
 # a wartość to ilość wystąpień klucza w liście.
 # Następnie usuń wszystkie elementy ze słownika, które nie będą liczbami.
-lista2=("aa","dfgdg",1,3,4,1,1.543,1.643,1,1.43,"a",[2,2,2])
+lista2=("aa","dfgdg",1,3,4,1,1.543,1.643,1,1.43,"a")
 slownik={}
 for i in range(0,len(lista2)):
 
