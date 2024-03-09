@@ -3,11 +3,11 @@ import math
 
 #Zad 1. Napisz skrypt, w którym tworzysz listę ulubionych sportów,
 # odwróć ją a następnie dodaj mniej lubiane sporty na sam koniec.
-sporty=["euknkanto","boks szachowy","flanki","podwodny hokej","wyscig strusi","cheese-rolling"]
+sporty=["euknkanto","boks szachowy","podwodny hokej","wyscig strusi","cheese-rolling"]
 print(sporty)
 sporty.reverse()
 print(sporty)
-sporty.extend(["kutarate","Quidditch"])
+sporty.extend(["flanki","Quidditch"])
 print(sporty)
 #chodzi ododanie odtakowego sportu czy o zmiane kolejnosci?
 
@@ -19,7 +19,7 @@ print(sporty)
 
 #nie beda z gazet
 print("zadanie 2 z deklaracja slownika")
-slownik={'kc':"kohcham cie",'pzdr':"pozdro",'cb':"Ciebie",'w8':"wait"}
+slownik={'np':"pa przyklad",'itd':"i tak dalej",'itp':"i tym podobne"}
 print(slownik)
 
 
@@ -27,8 +27,9 @@ print(slownik)
 # Pomyśl, co może być kluczem a co wartością w takim słowniku.
 # Policz liczbę elementów w słowniku.
 print("zadanie 3")
-gierki={1:"untitled goos game",2:"Counter-Strike",3:"Mario"}
-ilosc_kluczy=len(gierki)
+#bedzie z literaturą japonska piekna ktora mnie ostatnio urzekla
+ksiazki={1:"Zatracenie",2:"Ukochane równanie profesora",3:"Smierć Komandora"}
+ilosc_kluczy=len(ksiazki)
 print(gierki)
 print("tyle jest elementow a w zasadzie kluczy :",ilosc_kluczy)
 
@@ -106,4 +107,4 @@ try:
     wynik=math.sqrt(int(liczba_do_pierwiastka))
     print(wynik)
 except ValueError as error:
-    print("Ziomus ale nie ujemna...\n masz nawet nazw tego bledu:\n",error)
+    print("Ziomus ale nie ujemna...\n masz nawet nazwe tego bledu:\n",error)

@@ -38,9 +38,9 @@ zdanie_bez_spacji_i_wszytskie_male_litery=zdanie1.replace(" ","").lower()
 zdanie2=list(zdanie_bez_spacji_i_wszytskie_male_litery)
 zdanie2.reverse()
 if list(zdanie_bez_spacji_i_wszytskie_male_litery)==zdanie2:
-    print("spalindromowane")
+    print("to palindrom")
 else:
-    print("nie spalindromowane")
+    print("to nie palindrom")
 
 
 # # Zad4. Napisz skrypt, który sprawdzi czy wczytana liczba jest pierwsza.
@@ -113,7 +113,7 @@ print(slownik)
 # USUWANIE ELEMENTOW KTORE NIE SA LICZBAMI
 lista_z_kluczami_do_usniecia=[]
 for i in slownik:   #leci po kluczach
-    print(type(i))
+    #print(type(i))
     if type(i) ==str:   #sprawdza typ ,jak to nie jest liczbowy to wrzuca do odzielnej listy ktora bedzie przechowywac te klucze co nie sa liczbami
         lista_z_kluczami_do_usniecia.append(i)
 
