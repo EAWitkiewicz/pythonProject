@@ -34,3 +34,4 @@ if(int(podana1)<=10):
         print()
 else:print("WIEKSZA OD 10!!!")
 #help(m)
+
