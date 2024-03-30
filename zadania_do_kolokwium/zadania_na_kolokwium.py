@@ -1,5 +1,6 @@
 import sys
 import math as m
+import random as r
 
 # #zad 1 liczenie i wyswietlanie wyrazen
 # print("Zadanie 1")
@@ -23,15 +24,23 @@ import math as m
 #         print()
 # else:print("WIEKSZA OD 10!!!")
 
-print("\nZadnie 3")
-podana1=input("Podaj wysokosc wierzy miedzy 0 a 10: ")
-if(int(podana1)<=10):
-    for i in range(int(podana1)):
-        for k in range(int(podana1)-i):
-            for j in range(k):
-                    print("A",end='')
-        print("_", end='')
-        print()
-else:print("WIEKSZA OD 10!!!")
-#help(m)
+# print("\nZadnie 3")
+# podana1=input("Podaj wysokosc wierzy miedzy 0 a 10: ")
+# if(int(podana1)<=10):
+#     for i in range(0,int(podana1)):
+#         for k in range(int(podana1)-i-1):
+#             print("_",end='')
+#         for j in range(i*2+1):
+#             print("A",end='')
+#         print()
+# else:print("WIEKSZA OD 10!!!")
+
+print("\nZadnie 4")
+wektor=r.randint(2,10)
+k=wektor
+r=wektor
+macierz=[[r.random() for _ in range(k)] for _ in range(r)]
+print(macierz)
+#help(random)
+
 
