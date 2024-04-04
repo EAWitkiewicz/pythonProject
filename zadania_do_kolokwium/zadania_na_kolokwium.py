@@ -35,12 +35,21 @@ import random as r
 #         print()
 # else:print("WIEKSZA OD 10!!!")
 
-print("\nZadnie 4")
-wektor=r.randint(2,10)
-k=wektor
-r=wektor
-macierz=[[r.random() for _ in range(k)] for _ in range(r)]
-print(macierz)
-#help(random)
+print("\nZadnie 5")
+n=int(input("Podaj n: "))
+def macierz_wektor_liczba(x):
+    macierz=[[random.randint(1,10) for i in range(x)] for j in range(x)]
+    print(macierz)
+    lista_z_sumami=[]
+    for wiersz in macierz:
+        #print("wiersz ",wiersz)
+        suma_w_wierszu=sum(wiersz)
+        #print(" suma w wierszu ",suma_w_wierszu)
+        lista_z_sumami.append(suma_w_wierszu)
+        #print(lista_z_sumami)
+        #print("---")
+    return lista_z_sumami
+
+print(macierz_wektor_liczba(n))
 
 
