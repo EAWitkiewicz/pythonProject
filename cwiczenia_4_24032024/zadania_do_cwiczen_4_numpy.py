@@ -1,15 +1,29 @@
+import numpy as n
+
 # Zadania
 # Zad1.
 # Za pomocą funkcji arange stwórz tablicę numpy składającą się z 15 kolejnych wielokrotności liczby 3.
+tablica=n.arange(3,3*15+1,3)
+print(tablica)
 
 # Zad2.
-# Stwórz listę składającą się z wartości zmiennoprzecinkowych a następnie zapisz do innej zmiennej jej
+# Stwórz listę składającą się z wartości zmiennoprzecinkowych a następnie zapisz do
+# innej zmiennej jej
 # kopię przekonwertowaną na typ int64
+tab=n.arange(0,5,0.5,dtype='float64')
+tab1=tab.astype("int64")
+print(tab)
+print(tab1)
 
 # Zad3.
 # Napisz funkcję, która będzie:
 # • Przyjmowała jeden parametr ‘n’ w postaci liczby całkowitej
 # • Zwracała tablicę Numpy o wymiarach n*n kolejnych liczb całkowitych poczynając od 1
+n1=int(input("Podaj liczbe :"))
+def zwroci_tablice(n1):
+    tab2=n.array([n.arange(n1),n.arange(n1)])
+    return tab2
+print(zwroci_tablice(n1))
 
 # Zad4.
 # Napisz funkcję, która będzie przyjmowała 2 parametry: liczbę, która będzie podstawą operacji
