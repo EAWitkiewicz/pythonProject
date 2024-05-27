@@ -1,46 +1,73 @@
 import numpy as n
 
-# Zadania
-# Zad1.
-# Za pomocą funkcji arange stwórz tablicę numpy składającą się z 15 kolejnych wielokrotności liczby 3.
-tablica=n.arange(3,3*15+1,3)
-print(tablica)
-
-# Zad2.
-# Stwórz listę składającą się z wartości zmiennoprzecinkowych a następnie zapisz do
-# innej zmiennej jej
-# kopię przekonwertowaną na typ int64
-tab=n.arange(0,5,0.5,dtype='float64')
-tab1=tab.astype("int64")
-print(tab)
-print(tab1)
-
-# Zad3.
-# Napisz funkcję, która będzie:
-# • Przyjmowała jeden parametr ‘n’ w postaci liczby całkowitej
-# • Zwracała tablicę Numpy o wymiarach n*n kolejnych liczb całkowitych poczynając od 1
-n1=int(input("Podaj liczbe :"))
-def zwroci_tablice(n1):
-    tab2=n.array([n.arange(n1),n.arange(n1)])
-    return tab2
-print(zwroci_tablice(n1))
-
-# Zad4.
-# Napisz funkcję, która będzie przyjmowała 2 parametry: liczbę, która będzie podstawą operacji
-# potęgowania oraz ilość kolejnych potęg do wygenerowania. Korzystając z funkcji logspace generuj
-# tablicę jednowymiarową kolejnych potęg podanej liczby, np. generuj(2,4) -> [2,4,8,16]
-
-# Zad5.
-# Napisz funkcję, która:
-# • Na wejściu przyjmuje jeden parametr określający długość wektora
-# • Na podstawie parametru generuj wektor, ale w kolejności odwróconej
-# • Generuj macierz diagonalną z w/w wektorem jako przekątną
+# # Zadania
+# # Zad1.
+# # Za pomocą funkcji arange stwórz tablicę numpy składającą się z 15 kolejnych wielokrotności liczby 3.
+# tablica = n.arange(3, 3 * 15 + 1, 3)
+# print(tablica)
+#
+# # Zad2.
+# # Stwórz listę składającą się z wartości zmiennoprzecinkowych a następnie zapisz do
+# # innej zmiennej jej
+# # kopię przekonwertowaną na typ int64
+# tab = n.arange(0, 5, 0.5, dtype='float64')
+# tab1 = tab.astype("int64")
+# print(tab)
+# print(tab1)
+#
+# # Zad3.
+# # Napisz funkcję, która będzie:
+# # • Przyjmowała jeden parametr ‘n’ w postaci liczby całkowitej
+# # • Zwracała tablicę Numpy o wymiarach n*n kolejnych liczb całkowitych poczynając od 1
+# n1 = int(input("Podaj liczbe :"))
+#
+#
+# def zwroci_tablice(n1):
+#     tab2 = n.array([n.arange(n1), n.arange(n1)])
+#     return tab2
+#
+#
+# print(zwroci_tablice(n1))
+#
+#
+# # Zad4.
+# # Napisz funkcję, która będzie przyjmowała 2 parametry: liczbę, która będzie podstawą operacji
+# # potęgowania oraz ilość kolejnych potęg do wygenerowania. Korzystając z funkcji logspace generuj
+# # tablicę jednowymiarową kolejnych potęg podanej liczby, np. generuj(2,4) -> [2,4,8,16]
+# def zad4(podstawa, ile_poteg):
+#     lista = n.logspace(1, ile_poteg, num=ile_poteg, base=podstawa)
+#     #startuje od potego 1 jest tyle elementow co ile_poteg
+#     # Używa np.logspace do generowania sekwencji logarytmicznej zaczynającej
+#     # się od podstawa ^ 1 do podstawa ^ ile_poteg z ile_poteg
+#     # próbkami.
+#     return lista
+# # print(zad4(2,4))
+# # Zad5.
+# # Napisz funkcję, która:
+# # • Na wejściu przyjmuje jeden parametr określający długość wektora
+# # • Na podstawie parametru generuj wektor, ale w kolejności odwróconej
+# # • Generuj macierz diagonalną z w/w wektorem jako przekątną
+# def mdiag_z_wektorem_po_przekotnej(dl_wektora):
+#     wektor=n.arange(dl_wektora,0,-1)
+#     macierz_diagonalna=n.diag(wektor)
+#     return macierz_diagonalna
+# print(mdiag_z_wektorem_po_przekotnej(5))
 
 # Zad6.
 # Stwórz skrypt który na wyjściu wyświetli macierz numpy (tablica wielowymiarowa) w postaci
 # wykreślanki, gdzie jedno słowo będzie wypisane w kolumnie, jedno w wierszu i jedno po ukosie.
 # Jedno z tych słów powinno być wypisane od prawej do lewej.
+slowo1='wszytsko jedno'
+slowo2='marsz marsz'
+slowo3='trojkat'
+slowo1wtablice=n.array(list(slowo1))
+slowo2wtablice=n.array(list(slowo2))
+slowo3wtablice=n.array(list(slowo3))
 
+rozmiar=max(len(slowo1wtablice),len(slowo2wtablice),len(slowo3wtablice))
+macierz=n.zeros((rozmiar,rozmiar))
+macierz=macierz + n.diag(slowo1wtablice,0)
+print(macierz)
 # Zad7.
 # Napisz funkcję, która wygeneruje macierz wielowymiarową postaci:
 # [[2 4 6]
