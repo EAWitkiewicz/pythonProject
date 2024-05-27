@@ -85,8 +85,8 @@ import math
 #     return math.sqrt((x1-x2)**2 + (y1-y2)**2)
 #
 #
-# print(dlugosc_odcinka())                                #wyswietlenie funkcji
-# print(dlugosc_odcinka(4, 2, 6, 3))       #podajemy w kolejnsci
+# print(dlugosc_odcinka())  #wyswietlenie funkcji
+# print(dlugosc_odcinka(4, 2, 6, 3))  #podajemy w kolejnsci
 # print(dlugosc_odcinka(y2 = 3, x2 = 2, y1 = 3, x1 = 6))  #poza kolejnoscia_1
 # print(dlugosc_odcinka(3, 5, y2 = 4, y1 = 3))     #poza kolejnoscia_2
 

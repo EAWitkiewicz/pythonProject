@@ -69,7 +69,8 @@ import sys
 # # dodanie nowego elementu na koncu listy
 # lista.append(67)
 # print(lista)
-# # 1 pozycja: na ktora pozcyje ma wskoczyc(numeracja od zera) w przypadku 2 bedzie miedzy 1 a 2 indeksem ,2 pozycja: co ma byc wepchnete w liste
+# # 1 pozycja: na ktora pozcyje ma wskoczyc(numeracja od zera) w przypadku
+# 2 bedzie miedzy 1 a 2 indeksem ,2 pozycja: co ma byc wepchnete w liste
 # lista.insert(2, 'c')
 # print(lista)
 # # kilk aelementow na koniec listy,musza byc lista al enie zostana dodane jako lista tylko ajko oddzialne elementyS
