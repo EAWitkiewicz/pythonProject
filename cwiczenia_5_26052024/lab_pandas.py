@@ -98,4 +98,56 @@ print(df.sort_values(by='Kraj'))
 grouped=df.groupby(['Kontynent'])
 print(grouped.get_group('Europa'))
 print(df.groupby(['Kontynent']).agg({'Populacja':['sum']}))#utworzeni grupy po kolumnie kontynet i
-# dokonanie agregacji i bla bla bla za szybko mowil i nie powtorzyl
+# dokonanie agregacji i *za szybko mowil i nie powtorzyl*
+
+#######WYKRESY
+import matplotlib.pyplot as plt
+
+ts=pd.Series(np.random.randn(1000))
+ts=ts.cumsum()
+print(ts)
+ts.plot()
+plt.show()
+grupa=df.groupby(['Kontynent']).agg({'Populacja':['sum']})
+print(grupa)
+grupa.plot(kind='bar',xlabel='Kontynent',ylabel='Mid',rot=0,
+           legend=True,
+           title='Populacja z podziałem na kontynenty')
+wykres=grupa.plot.bar()
+wykres.set_ylabel("Mdl")
+wykres.set_xlabel('Kontynent')
+wykres.tick_params(axis='x',labelrotation=0)
+wykres.legend()
+wykres.set_title('Populacja z podziałem na kontynenty')
+#plt.xticks(rotation=0)
+plt.savefig('wykres.png')
+
+plt.show()
+
+df=pd.read_csv('dane.csv',header=0,sep=";",
+               decimal=".")
+print(df)
+#Zwrocic jaki jest separator liczb dziesientych i co oddziala kolumny czy : ; czy  -
+grupa=(df.groupby(['Imię i nazwisko']).
+       agg({'Wartość zamówienia':["sum"]}))
+grupa.plot(kind='pie',subplots=True,autopct='%.2f %%',
+           fontsize=20,figsize=(6,6),colors=['red','green'])
+# wykres=grupa.plot.pie(subplots=True,autopct='%.2f %%',
+#                       fontsize=20,figsize=(6,6))
+plt.legend(loc="lower right")
+plt.title('Suma zamowien dla sprzedarzy')
+plt.show()
+#
+#
+ts=pd.Series(np.random.randn(1000))
+ts=ts.cumsum()
+df=pd.DataFrame(ts,columns=['wartosci'])
+print(df)
+df['Średnia krocząca']=df.rolling(window=20).mean()
+df.plot()
+plt.legend()
+plt.show()
+
+
+
+
