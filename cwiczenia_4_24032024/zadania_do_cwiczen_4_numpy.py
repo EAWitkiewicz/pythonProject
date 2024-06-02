@@ -68,14 +68,13 @@ macierz=n.full((rozmiar,rozmiar),0,dtype='<U1')
 #poziomo
 #wstaawianie slowa od 0 wiersza do 1:kolumny
 #wypisaywanie od tylu
+#[poczatkwoy element:koncowy element:krok] wycinanie w pythonie
 odwroconeslowo=list(slowo2)[::-1]
 macierz[0, 1:1+len(slowo2)] =odwroconeslowo
 #pionowo
 macierz[1:len(slowo3)+1,0]=list(slowo3)
 #po ukosie
 n.fill_diagonal(macierz,list(slowo1))
-#macierz,wektor lub wartosc na przekatna
-
 
 print(macierz)
 # Zad7.
