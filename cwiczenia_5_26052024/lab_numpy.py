@@ -119,38 +119,52 @@ import numpy as np
 #         # 3
 #         # 4
 #         # 5
-
-# a=ny.arange(6).reshape((3,2))
+# # Tworzymy dwuwymiarową tablicę o wymiarach 3x2
+# a=np.arange(6).reshape((3,2))
 # print(a)
-# print(a.shape)
-# print(type(a))
-# for i in range(0,a.shape[0]):#.shape[0] - odwolanie sie do pozycji zerowej swojego rezultatu
-#     for j in range(0,a.shape[1]):#.shape[1] - wartosc odp. za ilosc kolumn, w tym przypadku 2 kolumny
+# print(a.shape)# Wyświetlamy kształt tablicy (ilość wierszy i kolumn) w:(3, 2)
+# print(type(a))#w:<class 'numpy.ndarray'>
+# # Pętla iterująca po wierszach tablicy
+# for i in range(0,a.shape[0]):#a.shape[0] odwolanie sie do wierszy czyli tu = 3
+#     # Pętla iterująca po kolumnach tablicy
+#     for j in range(0,a.shape[1]):#a.shape[1] odwolanie sie do kolumn czyli tu = 2
+#         # Wyświetlamy element tablicy o indeksach [i, j]
 #         print(a[i][j],end=' ')
 #     print(" ")
-#
+
 # #PRZEKSZTALCANIE MACIERZY
-# a=ny.arange(6)
-# print(a)
-# print(a.shape)
+# a=np.arange(6)
+# print(a)#w:[0 1 2 3 4 5]
+# print(a.shape)#w:(6,)
 # print("")
-# b=a.reshape((2,3))
+# b=a.reshape((2,3))#uwtorzenie z wektora macierzy 2x3
 # print(b)
-# print(b.shape)
+# #wynik:
+# #[[0 1 2]
+# # [3 4 5]]
+# print(b.shape)#w:(2, 3)
 # print("")
-# c=b.reshape((3,2))
+# c=b.reshape((3,2)) #przeksztalcanie macierzy 2x3 na macierz 3x2
 # print(c)
-# print(c.shape)
+# #wynik:
+# # [[0 1]
+# #  [2 3]
+# #  [4 5]]
+# print(c.shape)#w:(3, 2)
 # print("")
 # #Metoda ravel odtwarza wektor wejsciowy, splaszcza macierz do rozmiarow 1 na x elementow
 # d=c.ravel()
-# print(d)
-# print(d.shape)
+# print(d)#w:[0 1 2 3 4 5]
+# print(d.shape)#(6,)
 # print("")
-
 # #TRANSPOZYCJA MACIERZY
 # e=b.T
 # print(e)
+# #wynik: działa inaczej niz reshape ,reshape wbija eleemnty
+# #a transpozycja wpisuje wiersze jako kolumny
+# #[[0 3]
+#  # [1 4]
+#  # [2 5]]
 # print(e.shape)
 
 
