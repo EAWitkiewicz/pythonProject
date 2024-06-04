@@ -158,6 +158,7 @@ print(df.tail(1))
 # Liczbę wierszy
 # Średnią, medianę, minimum, maksimum i odchylenie standardowe każdej kolumny liczbowej
 # Liczbę wartości niezerowych dla każdej kolumny
+#w kolumnach z wartosciami liczbowymi
 print(df.describe())
 #wynik:
 #           Populacja
@@ -177,56 +178,164 @@ print(df.T)#transpozycja rami danych zamian awierszy z kolumnami
 # Stolica     Bruksela  New Delphi   Braslia
 # Populacja  191129123   123213213  23123123
 
-
+# filtruje serię s, zwracając tylko te elementy, które są
+# większe niż 9. W wyniku otrzymasz serię z wartościami spełniającymi ten warunek.
 print(s[(s>9)])
+#where zwraca serię, w której wartości spełniające warunek (większe niż 10)
+# pozostają bez zmian, a wartości niespełniające warunku są zastępowane przez NaN.
 print(s.where(s>10))
+#to samo tylko zamiast NaN wypisauje ,,za duze"
 print(s.where(s>10,'za duze'))
+#seria=s.copy(): Tworzy kopię serii s i przypisuje ją do zmiennej seria.
+# Dzięki temu oryginalna seria s pozostaje niezmieniona.
 seria=s.copy()
-# seria.where(seria>10,'za duze',inplace=True)
-print("##########")
+#Gdyby inplace=True nie było użyte, operacja where zwróciłaby nową
+# serię z wprowadzonymi zmianami, a oryginalna seria seria pozostałaby
+# niezmieniona.
+seria.where(seria>10,'za duze',inplace=True)
 print(seria)
-
+#wyniki:
+# a    za duze
+# b         12
+# c    za duze
+# d         14
+# Filtrowanie serii s, zwracając tylko te elementy, które są mniejsze
+# lub równe 10. Operator ~ neguje warunek (s>10), co oznacza, że
+# zwracane są elementy niespełniające warunku s>10.
 print(s[~(s>10)])
-
+#wynik:
+# a    10
+# c     8
+# dtype: int64
+#Filtrowanie wartości większych niż 8 i mniejszych niż 13:
 print(s[(s<13)&(s>8)])
+#wynik:
+# a    10
+# b    12
+# dtype: int64
 
+#Filtrowanie DataFrame df, zwracając tylko te wiersze, gdzie wartość w
+# kolumnie "Populacja" jest większa niż 1000 i indeks wiersza jest 0 lub 2.
 print(df[(df.Populacja>1000)&(df.index.isin([0,2]))])
+#df.index.isin([0, 2]): Tworzy maskę (warunek logiczny),
+# która zwraca True dla wierszy, których indeksy są w liście [0, 2].
+#wynik:
+#        Kraj   Stolica  Populacja
+# 0    Belgia  Bruksela  191129123
+# 2  Brazylia   Braslia   23123123
 
-print("##########")
-szukaj=['Belgia','Brasilia']
-print(df.isin(szukaj))
+#zwraca te wiersze z data freame'a gdzei jest brazylia i belgia
+szukaj=['Belgia','Braslia']
+print(df.isin(szukaj))#w takiej formie gdzie jest tylko true i false
+#wynik:
+#     Kraj  Stolica  Populacja
+# 0   True    False      False
+# 1  False    False      False
+# 2  False     True      False
 
 #dodawnie nowych elementow trocher tj w slowniku
+# Dodaje nowy element do serii s z indeksem 'e' i wartością 15.
+# nowy element zostanie dodany do końca seri
 s['e']=15
-print(s.e)
-s['f']=16
+print(s.e)#wynik: 15
+s['f']=16#dodaje nowy element o idexie f i wartosci 16
 print(s)
+#wybik:
+# a    10
+# b    12
+# c     8
+# d    14
+# e    15
+# f    16
 
-#nowy wiersz najlepiej dodac w formie listy *cos tam cos za syzbko mowil* kolumn
-df.loc[3]='dodane'
+#nowy wiersz najlepiej dodac w formie listy kolumn
+df.loc[3]='dodane'# Dodaje nowy wiersz z indeksem 3 do DataFrame,
+# wypełniając wszystkie komórki wiersza wartością 'dodane'.
 print(df)
-df.loc[4]=['Polska','Warszawa',38575467]
+#wynik:
+#        Kraj     Stolica  Populacja
+# 0    Belgia    Bruksela  191129123
+# 1     Indie  New Delphi  123213213
+# 2  Brazylia     Braslia   23123123
+# 3    dodane      dodane     dodane
+df.loc[4]=['Polska','Warszawa',38575467]#dodaje nowe dane w formie listy
 print(df)
-###
+#wynik:
+# 0    Belgia    Bruksela  191129123
+# 1     Indie  New Delphi  123213213
+# 2  Brazylia     Braslia   23123123
+# 3    dodane      dodane     dodane
+# 4    Polska    Warszawa   38575467
+
 new_df=df.drop([3])#zwraca ramke danych jako kopie bez usunietego elementu
 print(new_df)
+#wynik:(bez 3 wiersza)
+#        Kraj     Stolica  Populacja
+# 0    Belgia    Bruksela  191129123
+# 1     Indie  New Delphi  123213213
+# 2  Brazylia     Braslia   23123123
+# 4    Polska    Warszawa   38575467
 
+#Usuwanie wiersza w miejscu (bez tworzenia kopii):
 df.drop([3],inplace=True)
 print(df)
-##
-#axis decyduje po czym jest uswanie dany element
-# df.drop('Kraj',axis=1,inplace=True)
-print(df)
+#wunik:
+#        Kraj     Stolica  Populacja
+# 0    Belgia    Bruksela  191129123
+# 1     Indie  New Delphi  123213213
+# 2  Brazylia     Braslia   23123123
+# 4    Polska    Warszawa   38575467
 
+
+#axis decyduje po czym jest uswanie dany element  (1-kolumny,0-wiersze)
+#df.drop('Kraj',axis=1,inplace=True) do odkomentowania
+print(df)
+#wynik:
+#       Stolica  Populacja
+# 0    Bruksela  191129123
+# 1  New Delphi  123213213
+# 2     Braslia   23123123
+# 4    Warszawa   38575467
+
+# Dodawanie nowej kolumny:
 df['Kontynent']=['Europa','Azja',
                  'Ameryka Poludniowa','Europa']
 print(df)
+#wynik:
+#       Stolica  Populacja           Kontynent
+# 0    Bruksela  191129123              Europa
+# 1  New Delphi  123213213                Azja
+# 2     Braslia   23123123  Ameryka Poludniowa
+# 4    Warszawa   38575467              Europa
 
+#sortuje wersze po kolumnie kraj alfebetycznie
 print(df.sort_values(by='Kraj'))
+#wynik:
+#        Kraj     Stolica  Populacja           Kontynent
+# 0    Belgia    Bruksela  191129123              Europa
+# 2  Brazylia     Braslia   23123123  Ameryka Poludniowa
+# 1     Indie  New Delphi  123213213                Azja
+# 4    Polska    Warszawa   38575467              Europa
+#grupowanie po kontynentach
 grouped=df.groupby(['Kontynent'])
+#Pobranie określonej grupy z DataFrameGroupBy:
 print(grouped.get_group('Europa'))
-print(df.groupby(['Kontynent']).agg({'Populacja':['sum']}))#utworzeni grupy po kolumnie kontynet i
-# dokonanie agregacji i *za szybko mowil i nie powtorzyl*
+#wynik:
+#      Kraj   Stolica  Populacja Kontynent
+# 0  Belgia  Bruksela  191129123    Europa
+# 4  Polska  Warszawa   38575467    Europa
+
+#~df.groupby(['Kontynent']): Grupuje wiersze w DataFrame według wartości w kolumnie 'Kontynent'.
+#~agg({'Populacja':['sum']}): Wykonuje agregację danych dla każdej grupy.
+# W tym przypadku używamy funkcji sum() do obliczenia sumy populacji dla każdego kontynentu.
+print(df.groupby(['Kontynent']).agg({'Populacja':['sum']}))
+#wynik:
+#                     Populacja
+#                           sum
+# Kontynent
+# Ameryka Poludniowa   23123123
+# Azja                123213213
+# Europa              229704590
 
 #######WYKRESY
 import matplotlib.pyplot as plt
