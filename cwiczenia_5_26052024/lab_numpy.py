@@ -1,85 +1,125 @@
 import numpy as np
-import numpy as ny
 
-#WEKTORY
-# a=ny.array([20,30,40,50])
-# b=ny.arange(4)
-#
-# print(a)
+# #WEKTORY---------------------
+# a=np.array([20,30,40,50])
+# print(a)#w:[20,30,40,50]
+# b=np.arange(4)#w:[0 1 2 3]
 # print(b)
-#
-# c=a-b
-# print(b**2)
-#print(c)
+#--------odkomentowac fragment poniezj do przykladow do koeljnej lini z myslnikow
+##DZIALANIA NA WEKTORACCH
+# c=a-b#[20-0,30-1,40-2,50-3]
+# print(c)#w:[20 29 38 47]
 
-#print(b**2)
+# print(b**2)#[0**2 1**2 2**2 3**2]
+# #w:[0 1 4 9]
 
-# print(a)
-# a+=b
-# print(a)
-# a-=b
-# print(a)
+# a+=b#[20+0 30+1 40+2 50+3]
+# print(a)#w:[20 31 42 53]
+# a-=b#[20-0 31-1 42-2 53-3]
+# print(a)#[20 30 40 50]
 
-#MNOZENIE WEKTORÓW
-#d=a*b
-#print("\n",d,"\n")
-
-
-# b=ny.array(3)
-# print(b)
-# print(ny.exp(b))
-# print(ny.sqrt(b))
-# c=ny.array([2.,-1,4.])
-# print(ny.add(b,c))
-
-#MNOZENIE MACIERZY
-# a=ny.arange(3)
-# b=ny.arange(3)
-# print(a)
-# print(b)
-# print(a.dot(b))
-# print(ny.dot(a,b))
-# c=ny.array([[1,5],[2,6],[7,4]])
-# d=ny.array([[2,5,4],[4,3,1]])
-#
-#seweryna::
-# print("Macierz c: ", c, "\n")
-# print("Macierz d: ",d, "\n")
-# print("Wynik mnozenia macierzy c * d: ", np.dot(c,d), "\n")
-#K.s
-
+# #MNOZENIE WEKTORÓW
+# d=a*b
+# print("\n",d,"\n")#[20*0 30*1 40*2 50*3]
+# #w:[  0  30  80 150]
+# # Tworzenie tablicy numpy z jednym elementem o wartości 3
+# b=np.array(3)
+# print(b)# Wydrukowanie tablicy 'b': 3
+# print(np.exp(b))# Wydrukowanie wyniku funkcji wykładniczej dla tablicy 'b': 20.085536923187668
+# print(np.sqrt(b))# Wydrukowanie wyniku pierwiastkowania dla tablicy 'b': 1.7320508075688772
+# c=np.array([2.,-1,4.]) #rzykladowy wektor z elementó:[ 2. -1.  4.]
 # print(c)
-# print(d)
-# print(ny.dot(c,d))
-# print(ny.dot(d,c))
+# print(np.add(b,c))#[ 2.+3 -1.+3  4.+3]
+# #w:[5. 2. 7.]
+#------------------------------------------------------------------------
+#MNOZENIE MACIERZY#######################################################
+# a=np.arange(3) # Tworzenie tablicy numpy z wartościami [0, 1, 2]
+# b=np.arange(3) # Tworzenie tablicy numpy z wartościami [0, 1, 2]
+# print(a) #W:[0 1 2]
+# print(b)#W:[0 1 2]
+# # Obliczenie iloczynu skalarnego (dot product)
+# # tablic 'a' i 'b', a następnie wydrukowanie wyniku
+# print(a.dot(b))# Iloczyn skalarny: 0*0 + 1*1 + 2*2 = 0 + 1 + 4 = 5
+# # Wynik: 5
+# # Obliczenie iloczynu skalarnego (dot product)
+# # tablic 'a' i 'b', a następnie wydrukowanie wyniku
+# print(np.dot(a,b))# Iloczyn skalarny: 0*0 + 1*1 + 2*2 = 0 + 1 + 4 = 5
+# # Wynik: 5
+# c=np.array([[1,5],[2,6],[7,4]])
+# d=np.array([[2,5,4],[4,3,1]])
+#
+# print("Macierz c:\n", c, "\n")
+# print("Macierz d:\n",d, "\n")
+# print("Wynik mnozenia macierzy c * d: ", np.dot(c,d), "\n")
+# # [[ 22 20  9]   # (1*2 + 5*4) (1*5 + 5*3) (1*4 + 5*1)
+# #  [ 28 28 14]   # (2*2 + 6*4) (2*5 + 6*3) (2*4 + 6*1)
+# #  [ 30 47 36]]  # (7*2 + 4*4) (7*5 + 4*3) (7*4 + 4*1)
+# print(np.dot(d,c))
 
-#SUMA ELEMENTÓW MACIERZY
+# #SUMA ELEMENTÓW MACIERZY
+# # Tworzenie tablicy numpy z wartościami od 0 do 11,
+# # a następnie przekształcenie jej w macierz 3x4
 # a=np.arange(12).reshape((3,4))
 # print(a)
-# print(a.sum())
-# print(a.sum(axis=0))
+# # Wynik:
+# # [[ 0  1  2  3]
+# #  [ 4  5  6  7]
+# #  [ 8  9 10 11]]
+# print(a.sum())# Obliczenie sumy wszystkich elementów w macierzy 'a' i wydrukowanie wyniku
+# # Wynik: 66
+# print(a.sum(axis=0))# Obliczenie sumy elementów wzdłuż osi 0 (dla każdej kolumny) i wydrukowanie wyników
+# # Wynik: [12 15 18 21]
+# # (0+4+8, 1+5+9, 2+6+10, 3+7+11)
+# # Obliczenie minimalnej wartości wzdłuż osi 1 (dla każdego wiersza)
+# # i wydrukowanie wyników
 # print(a.min(axis=1))
-# print(a.cumsum(axis=1))
+# # Wynik: [0 4 8]
+# # (min(0,1,2,3), min(4,5,6,7), min(8,9,10,11))
+# print(a.cumsum(axis=1)) #axis 1-wiersze axis-0 kolumny
+# # Wynik:
+# # [[ 0  1  3  6] 1)
+# #  [ 4  9 15 22]
+# #  [ 8 17 27 38]]
+# #1)Pierwszy wiersz [0, 1, 2, 3]:
+# # Skumulowana suma zaczyna się od pierwszego elementu: 0
+# # Dodajemy drugi element: 0 + 1 = 1
+# # Dodajemy trzeci element: 1 + 2 = 3
+# # Dodajemy czwarty element: 3 + 3 = 6
+# # Wynik dla pierwszego wiersza: [0, 1, 3, 6]
 
-
-#PETLE NA MACIERZACH
+# #PETLE NA MACIERZACH
 # a=np.arange(6).reshape((3,2))
-# print(a)
+# #print(a)
+# #w:[[0 1]
+#  # [2 3]
+#  # [4 5]]
+#
 # for b in a: #element b, bedzie jako pojedynczy wiersz
 #     print(b)
+#     # w:[0 1] bez nawiasu na zewnatrz
+#     # [2 3]
+#     # [4 5]
 #
-# a=ny.arange(6).reshape((3,2))
-# print(a)
 # for b in a.flat:#.flat splaszcza macierz do wektora
 #     print(b)
+# #w:0
+# # 1
+# # 2
+# # 3
+# # 4
+# # 5
 #
-# print(a)
-# for b in a:#dostep do kazdego elementu z wiersza oddzielnie
-#     for i in range(len(b)):
-#         print(b[i],end=' ')
-#         print()
-# print(a)
-#
+# for b in a:  # Iteracja po każdym wierszu macierzy 'a'. 'b' będzie pojedynczym wierszem macierzy 'a'
+#     for i in range(len(b)):  # Iteracja po każdym elemencie wiersza 'b'
+#         print(b[i], end=' ')  # Wydrukowanie każdego elementu wiersza z odstępem
+#         print()  # Przejście do nowej linii po wydrukowaniu elementu
+#         #w:0
+#         # 1
+#         # 2
+#         # 3
+#         # 4
+#         # 5
+
 # a=ny.arange(6).reshape((3,2))
 # print(a)
 # print(a.shape)
@@ -115,29 +155,29 @@ import numpy as ny
 
 
 # CO DO NUMPY TO TYLE
-import pandas as pd
-
-s = pd.Series([1, 3, 5, np.nan, 6, 8])
-print(s)
-s = pd.Series([10, 12, 8, 14], index=['a', 'b', 'c', 'd'])
-print(s)
-data = {'Kraj': ['Belhia', 'Indie', 'Brazylia'],
-        'Stolica': ['Bruksela', 'New Delhi', 'Brazylia'],
-        'Populacja': [11190846, 13031171035, 207847528]}
-df = pd.DataFrame(data)
-print(df)
-print(df.dtypes)
-df = pd.read_csv('dane.csv', header=0, sep=";", decimal=',')
-print(df)
-df.to_csv('plik.csv', index=False)
-
-print(s['c'])
-print(s.c)
-print(df[0:1])
-print("")
-print(df['Populacja'])
-print(df.iloc[0.0])
-print(df.loc[0, "Kraj"])
-print(df.a[0, "Kraj"])
-print('kraj' + df.Kraj)
-print(df.sample())
+# import pandas as pd
+#
+# s = pd.Series([1, 3, 5, np.nan, 6, 8])
+# print(s)
+# s = pd.Series([10, 12, 8, 14], index=['a', 'b', 'c', 'd'])
+# print(s)
+# data = {'Kraj': ['Belhia', 'Indie', 'Brazylia'],
+#         'Stolica': ['Bruksela', 'New Delhi', 'Brazylia'],
+#         'Populacja': [11190846, 13031171035, 207847528]}
+# df = pd.DataFrame(data)
+# print(df)
+# print(df.dtypes)
+# df = pd.read_csv('dane.csv', header=0, sep=";", decimal=',')
+# print(df)
+# df.to_csv('plik.csv', index=False)
+#
+# print(s['c'])
+# print(s.c)
+# print(df[0:1])
+# print("")
+# print(df['Populacja'])
+# print(df.iloc[0.0])
+# print(df.loc[0, "Kraj"])
+# print(df.a[0, "Kraj"])
+# print('kraj' + df.Kraj)
+# print(df.sample())
