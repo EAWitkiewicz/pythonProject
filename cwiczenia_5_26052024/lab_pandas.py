@@ -339,45 +339,90 @@ print(df.groupby(['Kontynent']).agg({'Populacja':['sum']}))
 
 #######WYKRESY
 import matplotlib.pyplot as plt
-
+#pd.Series(...): Tworzy obiekt Series z wygenerowanych losowych liczb.
 ts=pd.Series(np.random.randn(1000))
-ts=ts.cumsum()
 print(ts)
-ts.plot()
+#0     -0.778730
+# 1     -1.234568
+# 2     -1.358140
+# 3     -0.495758
+# 4     -0.636445
+#          ...
+# 995   -1.261950
+# 996   -1.590856
+# 997    0.895280
+# 998   -1.649255
+# 999    0.402885
+#Length: 1000, dtype: float64
+
+ts=ts.cumsum()#obliczanie skumulowanej sumy
+print(ts)
+# 0       0.748168
+# 1       2.904257
+# 2       2.525722
+# 3       0.653068
+# 4       1.153770
+#          ...
+# 995    25.741454
+# 996    26.761460
+# 997    26.310061
+# 998    27.150879
+# 999    27.274170
+#Length: 1000, dtype: float64
+ts.plot()#worzenie wykresu z wczesniej stworzonej wersji danych
 plt.show()
 grupa=df.groupby(['Kontynent']).agg({'Populacja':['sum']})
 print(grupa)
-grupa.plot(kind='bar',xlabel='Kontynent',ylabel='Mid',rot=0,
-           legend=True,
-           title='Populacja z podziałem na kontynenty')
-wykres=grupa.plot.bar()
-wykres.set_ylabel("Mdl")
-wykres.set_xlabel('Kontynent')
+#Kontynent
+# Ameryka Poludniowa   23123123
+# Azja                123213213
+# Europa              229704590
+grupa.plot(
+    kind='bar',          # Określa typ wykresu jako słupkowy (bar chart)
+    xlabel='Kontynent',  # Ustawia etykietę osi X na 'Kontynent'
+    ylabel='Mid',        # Ustawia etykietę osi Y na 'Mid'
+    rot=0,               # Ustawia kąt obrotu etykiet osi X na 0 stopni (brak obrotu)
+    legend=True,         # Wyświetla legendę na wykresie
+    title='Populacja z podziałem na kontynenty'  # Ustawia tytuł wykresu
+)
+wykres=grupa.plot.bar()# Tworzenie wykresu słupkowego z obiektu 'grupa'
+wykres.set_ylabel("Mdl")# Ustawienie etykiety osi Y na 'Mdl'
+wykres.set_xlabel('Kontynent')# Ustawienie etykiety osi X na 'Kontynent'
 wykres.tick_params(axis='x',labelrotation=0)
-wykres.legend()
-wykres.set_title('Populacja z podziałem na kontynenty')
+# Ustawienie parametrów osi X, w szczególności obrót etykiet na 0 stopni (poziomo
+wykres.legend()# Włączenie legendy na wykresie
+wykres.set_title('Populacja z podziałem na kontynenty')# Ustawienie tytułu wykresu na 'Populacja z podziałem na kontynenty'
 #plt.xticks(rotation=0)
-plt.savefig('wykres.png')
+plt.savefig('wykres.png')# Zapisanie wykresu do pliku 'wykres.png'
 
 plt.show()
-
+# header=0 oznacza, że pierwsza linia pliku CSV zawiera nazwy kolumn.
 df=pd.read_csv('dane.csv',header=0,sep=";",
                decimal=".")
 print(df)
 #Zwrocic jaki jest separator liczb dziesientych i co oddziala kolumny czy : ; czy  -
+
+# Grupuje dane w DataFrame `df` według kolumny
+# 'Imię i nazwisko' i sumuje wartości w kolumnie 'Wartość zamówienia' dla każdej grupy
 grupa=(df.groupby(['Imię i nazwisko']).
        agg({'Wartość zamówienia':["sum"]}))
-grupa.plot(kind='pie',subplots=True,autopct='%.2f %%',
-           fontsize=20,figsize=(6,6),colors=['red','green'])
+grupa.plot(kind='pie',# Tworzy wykres kołowy (pie chart) z sumy wartości zamówień dla każdej osoby.
+           subplots=True,# subplots=True tworzy osobne wykresy dla każdej grupy.
+           autopct='%.2f %%',# autopct='%.2f %%' wyświetla wartości procentowe na wykresie z dokładnością do dwóch miejsc po przecinku.
+           fontsize=20,
+           figsize=(6,6),# figsize=(6,6) ustawia rozmiar wykresu na 6x6 cali.
+           colors=['red','green'])
 # wykres=grupa.plot.pie(subplots=True,autopct='%.2f %%',
 #                       fontsize=20,figsize=(6,6))
-plt.legend(loc="lower right")
+plt.legend(loc="lower right")# Dodaje legendę do wykresu i umieszcza ją w prawym dolnym rogu.
 plt.title('Suma zamowien dla sprzedarzy')
 plt.show()
 #
 #
 ts=pd.Series(np.random.randn(1000))
 ts=ts.cumsum()
+# Tworzy ramkę danych na podstawie serii `ts`
+# z jedną kolumną o nazwie 'wartosci'.
 df=pd.DataFrame(ts,columns=['wartosci'])
 print(df)
 df['Średnia krocząca']=df.rolling(window=20).mean()
