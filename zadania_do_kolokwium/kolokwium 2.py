@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import pylab as pl
+
 #Zad 1. (6pkt.) Za pomocą biblioteki matplotlib utwórz wykres liniowy funkcji f(x) = sin(x) * x,
 # dla x z przedziału [-3,3] z wartościami zmieniającymi się co 1/2. Ustaw zakres osi x na wartości -3 i 3,
 # dodaj etykiety do osi x i y, ustaw tytuł wykresu.
@@ -10,6 +12,8 @@ plt.plot(os_x,y)
 plt.ylabel('os y')
 plt.xlabel('os x')
 plt.title('wykres sin(x)*x')
+# Ustawienie zakresu osi x
+plt.xlim(-3, 3)
 plt.show()
 print(os_x)
 
@@ -47,9 +51,10 @@ plt.show()
 # Procentowe wartości mają być zaokrąglone do dwóch miejsc po przecinku,
 # rozmiar czcionki 14. Dodaj tytuł i legendę.
 
-# Policz ilość samochodów dla każdego rodzaju paliwa
-ile=dane['Fuel type'].value_counts()
-
-fig,ax=plt.subplots()
-ax.pie(ile,labels=ile.index,autopct='%2.f',fontsize=14)
+ile_aut=dane['Fuel-type'].value_counts()
+plt.figure()
+ile_aut.plot(kind='pie',autopct='%.2f%%',color=['blue','green'],labels=None,ylabel='')
+plt.rc('font',size=14)
+plt.title('Procetowa ilosc aut z danym rodajem paliwa')
+plt.legend(labels=ile_aut.index)
 plt.show()
