@@ -86,8 +86,11 @@ w_roku_2005=df1[df1['Data zamowienia'].dt.year==2005]
 sprzedawcy_z_polski=w_roku_2005[w_roku_2005['Kraj']=='Polska']
 suma_zamowien=sprzedawcy_z_polski['idZamowienia'].count()
 print(suma_zamowien)
-#TODO
+
 # • średnią kwotę zamówienia w 2004 roku,
+zamowinie_2004=df1[df1['Data zamowienia'].dt.year==2004]
+srednia=zamowinie_2004['Utarg'].mean()
+print("%0.2f"%srednia)
 
 # • zapisz dane za 2004 rok do pliku zamówienia_2004.csv a dane za 2005 do pliku
 # zamówienia_2005.csv
