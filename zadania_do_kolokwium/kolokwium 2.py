@@ -6,7 +6,7 @@ import pylab as pl
 #Zad 1. (6pkt.) Za pomocą biblioteki matplotlib utwórz wykres liniowy funkcji f(x) = sin(x) * x,
 # dla x z przedziału [-3,3] z wartościami zmieniającymi się co 1/2. Ustaw zakres osi x na wartości -3 i 3,
 # dodaj etykiety do osi x i y, ustaw tytuł wykresu.
-os_x=np.arange(-3,3,0.5)
+os_x=np.arange(-3,3.01,0.5)
 y=np.sin(os_x)*os_x
 plt.plot(os_x,y)
 plt.ylabel('os y')
@@ -36,7 +36,7 @@ auta=np.array(list(modele.groups.keys()))
 ceny=list(suma_cen)
 print(ceny)
 fig,ax=plt.subplots()
-color=plt.cm.viridis(np.linspace(0,1),len(auta))
+color=plt.cm.prism(np.linspace(0,2),len(auta))
 ax.bar(x=auta,height=ceny,color=color)
 plt.title('Ceny aut')
 plt.xlabel('Modele aut')
